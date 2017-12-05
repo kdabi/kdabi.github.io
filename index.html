@@ -18,8 +18,18 @@
 		<link rel="stylesheet" href="css/reset_style.css">
 		<!-- Fav Icon -->
 		<link rel="shortcut icon" href="favicon.ico">
+        <script>
+            function disableClick(){
+                document.onclick=function(event){
+                    if (event.button == 2) {
+                        alert('Right Click Message');
+                        return false;
+                    }
+                }
+            }
+        </script>
 	</head>
-	<body>
+	<body onLoad = "disableClick()">
 	
 		<!-- Slideshow Background -->
 		<div class="lx-slideshow-background">
