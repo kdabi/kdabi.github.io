@@ -825,6 +825,19 @@ Here is the content of this css file
 .lx-comment-field  *:focus{
 	background:#F8F8F8;
 }
+.lx-comments-form form input[type='submit']{
+	float:right;
+	padding:10px;
+	background:#F8F8F8;
+	color:#434343;
+	border:1px solid #EEEEEE;
+	cursor:pointer;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.lx-comments-form  form input[type='submit']:hover{
+	background:#EEEEEE;
+}
 .lx-comments-form form input[type='button']{
 	float:right;
 	padding:10px;
@@ -995,6 +1008,20 @@ Here is the content of this css file
 .lx-contact form textarea:focus ~ i{
     background:#0099cc;
 	color:#FFFFFF;
+}
+.lx-contact form input[type='submit']{
+	float:right;
+	padding:10px 40px;
+	background:#0099cc;
+	color:#FFFFFF;
+	border:1px solid #0099cc;
+	cursor:pointer;
+	-webkit-transition: all 0.3s;
+	transition: all 0.3s;
+}
+.lx-contact form input[type='submit']:hover{
+	background:#FFFFFF;
+	color:#0099cc;
 }
 .lx-contact form input[type='button']{
 	float:right;
