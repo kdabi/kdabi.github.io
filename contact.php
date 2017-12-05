@@ -1,19 +1,11 @@
-<?php
-//if "email" variable is filled out, send email
-  if (isset($_REQUEST['email']))  {
-  
-  //Email information
-  $admin_email = "kritagya577@gmail.com";
-  $email = $_REQUEST['email'];
-  $subject = $_REQUEST['fullname'];
-  $comment = $_REQUEST['message'];
-  
-  //send email
-  mail($admin_email, "$subject", $comment, "From:" . $email);
-  
-  //Email response
-  echo "Thank you for contacting us!";
-  }
-  
-  //if "email" variable is not filled out, display the form
+<?php 
+$ToEmail = 'kritagya577@gmail.com'; 
+$EmailSubject = 'Site contact form'; 
+$mailheader = "From: ".$_POST["email"]."\r\n"; 
+$mailheader .= "Reply-To: ".$_POST["email"]."\r\n"; 
+$mailheader .= "Content-type: text/html; charset=iso-8859-1\r\n"; 
+$MESSAGE_BODY = "Name: ".$_POST["fullname"].""; 
+$MESSAGE_BODY .= "Email: ".$_POST["email"].""; 
+$MESSAGE_BODY .= "Comment: ".nl2br($_POST["message"]).""; 
+mail($ToEmail, $EmailSubject, $MESSAGE_BODY, $mailheader) or die ("Failure"); 
 ?>
