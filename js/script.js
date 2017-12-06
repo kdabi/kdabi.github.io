@@ -39,7 +39,7 @@ $(document).on("ready", function() {
 			if(i === 3){
 				i = 0;
 			}
-		},4000);
+		},400000000);
 	}
 
 	// Set Months
