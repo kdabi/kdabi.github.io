@@ -9,28 +9,28 @@ $(window).on("load", function() {
 });
 
 $(document).on("ready", function() {
-	
+
 	// Set body background
 	$("body").css({"background":$(".lx-wrapper").attr("data-background-color")+" url('"+$(".lx-wrapper").attr("data-background")+"') no-repeat center center fixed","background-size":"cover"});
-	
+
 	// Resize home and content blocs
 	$(".lx-home").css("height",$(".lx-wrapper").height()+"px");
 	$(".lx-blocs-content").css("max-height",($(".lx-wrapper").height()-100)+"px");
 	if($(window).width() <= 768){
 		$(".lx-blocs-content").css("max-height",($(".lx-wrapper").height()-42)+"px");
 	}
-	
+
 	if($(".lx-main-menu ul").height() > $(window).height()){
 		$(".lx-menu-down").css("display","block");
 	}
-	
+
 	// SlideShow background if it does exist
 	if($(".lx-slideshow-background").length){
 		for (var i = 0; i < $(".lx-slideshow-img", ".lx-slideshow-background").length; i++) {
 			$(".lx-slideshow-img:eq(" + i + ")").css({"background":"url('"+$(".lx-slideshow-img:eq(" + i + ") img").attr("src")+"') no-repeat center center fixed","background-size":"cover"});
 			$(".lx-slideshow-img:eq(" + i + ") img").remove();
-		}	
-		
+		}
+
 		var i = 0;
 		window.setInterval(function(){
 			$(".lx-slideshow-img").not(":eq(" + i + ")").fadeOut();
@@ -41,7 +41,7 @@ $(document).on("ready", function() {
 			}
 		},4000);
 	}
-	
+
 	// Set Months
 	var month = new Array();
 	month[0] = "JAN";
@@ -56,32 +56,32 @@ $(document).on("ready", function() {
 	month[9] = "OCT";
 	month[10] = "NOV";
 	month[11] = "DEC";
-	
+
 	// Get Current Date
 	var lx_date = new Date();
 	$(".lx-day").text(lx_date.getDate());
 	$(".lx-month").text(month[lx_date.getMonth()]);
 	$(".lx-year").text(lx_date.getFullYear());
-	$(".lx-time").text(lx_date.getHours()+":"+lx_date.getMinutes()+":"+lx_date.getSeconds());
-	
+	$(".lx-time").text( (lx_date.getHours()<10?"0":"") + lx_date.getHours()+":" + (lx_date.getMinutes()<10?"0":"") +lx_date.getMinutes()+":"+ (lx_date.getSeconds()<10?"0":"") +lx_date.getSeconds());
+
 	// Retreive Time
 	window.setInterval(function(){
 		var lx_date = new Date();
-		$(".lx-time").text(lx_date.getHours()+":"+lx_date.getMinutes()+":"+lx_date.getSeconds());
+	$(".lx-time").text( (lx_date.getHours()<10?"0":"") + lx_date.getHours()+":" + (lx_date.getMinutes()<10?"0":"") +lx_date.getMinutes()+":"+ (lx_date.getSeconds()<10?"0":"") +lx_date.getSeconds());
 	},1000);
 
 	// Mini Slide Init
 	for(var i=0;i<$(".lx-mini-slide").length;i++){
 		$(".lx-mini-slide:eq("+i+") ul li").css({"width":$(".lx-popup-image").outerWidth()+"px"});
-		$(".lx-mini-slide:eq("+i+") ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+$(".lx-popup-image").outerWidth()+"px"});		
+		$(".lx-mini-slide:eq("+i+") ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+$(".lx-popup-image").outerWidth()+"px"});
 	}
-	
+
 	var patt = /single-post/;
-	if(!patt.test(location.pathname)){		
+	if(!patt.test(location.pathname)){
 		// Redirection to the requested bloc
 		hashHistory();
 	}
-	
+
 	return false;
 });
 
@@ -125,7 +125,7 @@ $(window).on("hashchange", function() {
 
 // Hash event
 function hashHistory() {
-	
+
 	// Retreive Hash
     var page = "";
     if (window.location.hash) {
@@ -153,7 +153,7 @@ function hashHistory() {
 		for (var i = 0; i < $(".lx-bar", ".lx-bars-chart").length; i++) {
             $(".lx-bar:eq(" + i + ") .lx-bar-counter").text("0%");
             $(".lx-bar:eq(" + i + ") .lx-bar-fill").css("width","0%");
-        }		
+        }
 	}
 }
 
@@ -161,7 +161,7 @@ function hashHistory() {
 $(".lx-main-menu ul li a").on("click", function() {
 
 	var patt = /single-post/;
-	if(!patt.test(location.pathname)){	
+	if(!patt.test(location.pathname)){
 		// Remove active class from menus
 		$(".lx-main-menu ul li a").removeClass("active");
 		// Set clicked menu active
@@ -172,7 +172,7 @@ $(".lx-main-menu ul li a").on("click", function() {
 		$("."+$(this).attr("data-title")).addClass("active");
 		// Update the url
 		history.pushState('data', '', $(this).attr("data-url"));
-		
+
 		// If bloc skills load the progress bars
 		if($(this).attr("data-title") === "lx-skills"){
 			for (var i = 0; i < $(".lx-bar", ".lx-bars-chart").length; i++) {
@@ -184,13 +184,13 @@ $(".lx-main-menu ul li a").on("click", function() {
 			for (var i = 0; i < $(".lx-bar", ".lx-bars-chart").length; i++) {
 				$(".lx-bar:eq(" + i + ") .lx-bar-counter").text("0%");
 				$(".lx-bar:eq(" + i + ") .lx-bar-fill").css("width","0%");
-			}		
+			}
 		}
-		
+
 		// Responsive Menu Hide
 		if($(window).width() <= 768){
 			$(".lx-main-menu").css("left", "-120px");
-			$(".lx-main-menu > i").attr("class", "lnr lnr-menu");		
+			$(".lx-main-menu > i").attr("class", "lnr lnr-menu");
 		}
 	}
 });
@@ -213,12 +213,12 @@ $(".lx-menu-down").on("click", function() {
 	if($(window).height() - topMenu < $(".lx-main-menu ul").height()){
 		topMenu = topMenu - 94;
 		$(".lx-main-menu ul").css("top",topMenu+"px");
-		$(".lx-menu-up").css("display","block");		
+		$(".lx-menu-up").css("display","block");
 	}
 	else{
 		$(".lx-menu-down").css("display","none");
-	}	
-	
+	}
+
     return false;
 });
 $(".lx-menu-up").on("click", function() {
@@ -230,22 +230,22 @@ $(".lx-menu-up").on("click", function() {
 	else{
 		$(".lx-menu-up").css("display","none");
 	}
-	
+
     return false;
 });
 
 // Hide window
 $(".lx-blocs-head ul li a i.lnr-cross").on("click", function() {
-	
+
 	// Remove active class from menus
     $(".lx-main-menu ul li a").removeClass("active");
 	$(".lx-main-menu ul li a[data-title='lx-home']").addClass("active");
-	
+
 	// Remove active class from the closed bloc
     $(this).parent().parent().parent().parent().parent().removeClass("active");
 
 	history.pushState('data', '', '#home');
-	
+
 	// Empty the progress bars if it is the skills bloc
 	if($(this).parent().parent().parent().parent().parent().attr("class") === "lx-skills lx-blocs"){
 		for (var i = 0; i < $(".lx-bar", ".lx-bars-chart").length; i++) {
@@ -253,19 +253,19 @@ $(".lx-blocs-head ul li a i.lnr-cross").on("click", function() {
             $(".lx-bar:eq(" + i + ") .lx-bar-fill").css("width","0%");
         }
 	}
-	
+
 	// Contract the form the bloc if it is expanded
 	if($(this).parent().parent().parent().find(".lnr-frame-contract").length){
 		$(this).parent().parent().parent().find(".lnr-frame-contract").attr("class","lnr lnr-frame-expand");
-		$(this).parent().parent().parent().parent().parent().attr("style","");		
+		$(this).parent().parent().parent().parent().parent().attr("style","");
 	}
-		
+
     return false;
 });
 
 // Expand and Contract window
 $(".lx-blocs-head ul li a").on("click", function() {
-		
+
 	if($(this).find("i").attr("class") === "lnr lnr-frame-expand"){
 		$(this).find("i").attr("class","lnr lnr-frame-contract");
 		$(this).parent().parent().parent().parent().css({"position":"fixed","z-index":"10","top":"0px","left":"0px","height":"100%"});
@@ -306,17 +306,17 @@ $(".lx-contact form input[type='button']").on("click", function() {
     if (txtarea.val() === "") {
         txtarea.after("<span>This field must be filled</span>").css("border-right", "3px solid #a94442");
     }
-	
+
 	if($(".lx-contact form span").length === 0){
 		var url = "send-contact-form.php?fullname="+fullname.val()+"&email="+email.val()+"&message="+txtarea.val();
 		var posting = $.post( url );
 		posting.done(function( data ) {
-			$(".lx-contact-saved").html(data);	
+			$(".lx-contact-saved").html(data);
 			$(".lx-contact form input[name='fullname']").val("");
 			$(".lx-contact form input[name='email']").val("");
 			$(".lx-contact form textarea").val("");
-		});	
-	}	
+		});
+	}
     return false;
 });
 
@@ -347,22 +347,22 @@ $(".lx-contact form textarea").on("keyup", function() {
 
 // Comment Form Errors
 $(".lx-comments-form input[type='button']").on("click",function(){
-	
+
 	$(".lx-comments-form input[type='text']").css("border-color","#FF0000");
 	$(".lx-comments-form textarea").css("border-color","#FF0000");
-	
+
 	// Test fullname input
 	var fullname = $(".lx-comments-form input[name='fullname']");
 	if(fullname.val() !== ""){
 		fullname.css("border-color","#EEEEEE");
 	}
-	
+
 	// Test message input
 	var txtarea = $(".lx-comments-form textarea");
 	if(txtarea.val() !== ""){
 		txtarea.css("border-color","#EEEEEE");
 	}
-	
+
 	return false;
 });
 
@@ -371,7 +371,7 @@ $(".lx-comments-form input[name='fullname']").on("keyup",function(){
 	if($(this).val() !== ""){
 		$(this).css("border-color","#EEEEEE");
 	}
-	
+
 	return false;
 });
 
@@ -379,7 +379,7 @@ $(".lx-comments-form textarea").on("keyup",function(){
 	if($(this).val() !== ""){
 		$(this).css("border-color","#EEEEEE");
 	}
-	
+
 	return false;
 });
 
@@ -391,7 +391,7 @@ $(".lx-lang p").on("click",function(){
 	else{
 		$(".lx-lang-items ul").fadeOut();
 	}
-	
+
 	return false;
 });
 
