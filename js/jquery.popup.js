@@ -59,7 +59,7 @@ $("i.fa-search-plus", ".lx-projects").on("click",function() {
 			info = info + "<p><b>" + $(this).attr("data-title") + " : </b>" + $(this).attr("data-content") + "</p>";
 		}
 		else if($(this).attr("data-type") == "mylink"){
-			info = info + '<p><a href="' + $(this).attr("link") + '" target="_blank">' + $(this).attr("data-title") + "</a></p>";
+			info = info + '<p><a href="' + $(this).attr("link") + '"  target="_blank">' + $(this).attr("data-title") + "</a></p>";
 		}
 	});
 	popupInfo.html(info);
