@@ -22,7 +22,7 @@ $("i.fa-search-plus", ".lx-projects").on("click",function() {
 		$(".lx-popup-image").css({"width":slideSize+"px"});
 		$(".lx-mini-slide-nav").css({"width":slideSize+"px"});
 		$(".lx-mini-slide ul li").css({"width":slideSize+"px"});
-		$(".lx-mini-slide ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+slideSize+"px"});		
+		$(".lx-mini-slide ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+slideSize+"px"});
 	}
     // set nbpics to 0
     nbpics = 0;
@@ -58,6 +58,9 @@ $("i.fa-search-plus", ".lx-projects").on("click",function() {
 		else if($(this).attr("data-type") == "feature"){
 			info = info + "<p><b>" + $(this).attr("data-title") + " : </b>" + $(this).attr("data-content") + "</p>";
 		}
+		else if($(this).attr("data-type") == "mylink"){
+			info = info + '<p><a href="' + $(this).attr("link") + '" target="_blank">' + $(this).attr("data-title") + "</a></p>";
+		}
 	});
 	popupInfo.html(info);
     popupTitle.text($(this).parent().find("h4").text());
@@ -76,7 +79,7 @@ $(".lx-popup-inside a .fa-caret-left", ".lx-popup").on("click",function() {
 		$(".lx-popup-image").css({"width":slideSize+"px"});
 		$(".lx-mini-slide-nav").css({"width":slideSize+"px"});
 		$(".lx-mini-slide ul li").css({"width":slideSize+"px"});
-		$(".lx-mini-slide ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+slideSize+"px"});		
+		$(".lx-mini-slide ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+slideSize+"px"});
 	}
     // test if the curent picture is equal to 1 or not
     if (currentpic === 1) {
@@ -85,7 +88,7 @@ $(".lx-popup-inside a .fa-caret-left", ".lx-popup").on("click",function() {
         currentpic = parseInt(currentpic) - 1;
     }
     // transmit information to the popup
-    
+
 	if($(".lx-projects-item[data='" + currentpic + "']", ".lx-projects").find(".lx-mini-slide").length){
 		popupImg.css("display","none");
 		popupImg.parent().find(".lx-mini-slide").remove();
@@ -103,6 +106,9 @@ $(".lx-popup-inside a .fa-caret-left", ".lx-popup").on("click",function() {
 		else if($(this).attr("data-type") == "feature"){
 			info = info + "<p><b>" + $(this).attr("data-title") + " : </b>" + $(this).attr("data-content") + "</p>";
 		}
+		else if($(this).attr("data-type") == "mylink"){
+			info = info + '<p><a href="' + $(this).attr("link") + '"  target="_blank">' + $(this).attr("data-title") + "</a></p>";
+		}
 	});
 	popupInfo.html(info);
     popupTitle.text($(".lx-projects-item[data='" + currentpic + "'] h4", ".lx-projects").text());
@@ -118,7 +124,7 @@ $(".lx-popup-inside a .fa-caret-right", ".lx-popup").on("click",function() {
 		$(".lx-popup-image").css({"width":slideSize+"px"});
 		$(".lx-mini-slide-nav").css({"width":slideSize+"px"});
 		$(".lx-mini-slide ul li").css({"width":slideSize+"px"});
-		$(".lx-mini-slide ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+slideSize+"px"});		
+		$(".lx-mini-slide ul").css({"-webkit-transition":"all 0s","transition":"all 0s","left":"-"+slideSize+"px"});
 	}
     // test if the current picture is equal to the number pictures or not
     if (currentpic === nbpics) {
@@ -144,6 +150,9 @@ $(".lx-popup-inside a .fa-caret-right", ".lx-popup").on("click",function() {
 		else if($(this).attr("data-type") == "feature"){
 			info = info + "<p><b>" + $(this).attr("data-title") + " : </b>" + $(this).attr("data-content") + "</p>";
 		}
+		else if($(this).attr("data-type") == "mylink"){
+			info = info + '<p><a href="' + $(this).attr("link") + '" target="_blank">' + $(this).attr("data-title") + "</a></p>";
+		}
 	});
 	popupInfo.html(info);
     popupTitle.text($(".lx-projects-item[data='" + currentpic + "'] h4", ".lx-projects").text());
@@ -168,10 +177,10 @@ $(document).on("keyup", function(e) {
     }
     if (e.keyCode === 37) {
         $(".lx-popup-inside a .fa-caret-left").trigger("click");
-    }	
+    }
 	if (e.keyCode === 39) {
         $(".lx-popup-inside a .fa-caret-right").trigger("click");
-    }	
+    }
     return false;
 });
 
