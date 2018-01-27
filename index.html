@@ -3,6 +3,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
+        <!-- Hello there - Kritagya -->
 		<title>Kritagya Dabi</title>
 		<meta name="description" content="Kritagya Dabi - Responsive Personal Resume">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,11 +17,11 @@
 		<link rel="stylesheet" href="css/main_style.css">
 		<!-- Reseters -->
 		<link rel="stylesheet" href="css/reset_style.css">
+		<link rel="stylesheet" href="css/canvas.css">
 		<!-- Fav Icon -->
 		<link rel="shortcut icon" href="favicon.ico">
 	</head>
-	<body oncontextmenu="return false">
-	
+    <body>
 		<!-- Slideshow Background -->
 		<div class="lx-slideshow-background">
 			<div class="lx-slideshow-img"><img src="images/slide1.jpg" alt="background 1" /></div>
@@ -30,7 +31,7 @@
 		<!-- End Slideshow Background -->
 		
 		<!-- Wrapper -->
-		<div class="lx-wrapper" data-background="" data-background-color="#000000">	
+		<div class="lx-wrapper" data-background-color="#000000">	
 
 			<!-- Loader -->
 			<div class="lx-loader">
@@ -38,7 +39,6 @@
 				<img src="images/flickr.svg" alt="Loading" />
 			</div>
 			<!-- End Loader -->
-		
 			<!-- Copyright -->
 			<div class="lx-copyright">
 			</div>
@@ -85,6 +85,8 @@
 									<a href="docs/KritagyaResume.pdf" target="_blank">DOWNLOAD MY CV</a>
 								</div>								
 							</div>
+                            <canvas id="canvas">
+                            </canvas>
 						</div>
 						<!-- End Home -->
 
@@ -712,5 +714,7 @@
 		<script src="js/script.js"></script>		
 		<!-- Video Script -->
 		<script src="js/video.js"></script>		
-	</body>
+		<!-- Canvas Script -->
+		<script src="js/canvas.js"></script>		
+        </body>
 </html>
